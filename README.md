@@ -1,7 +1,7 @@
 SourceRabbit's Post Processors Library
 ------
 <p align="center">
-<a href="https://www.sourcerabbit.com"><img src="https://github.com/SourceRabbit/post-processors/blob/main/_images/header.png" alt="SourceRabbit Post Processors"></a>
+<a href="https://www.sourcerabbit.com"><img src="https://github.com/SourceRabbit/post-processors/blob/main/_images/header2.png" alt="SourceRabbit Post Processors"></a>
 </p>
 
 Introduction
