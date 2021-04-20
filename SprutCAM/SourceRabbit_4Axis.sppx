@@ -1,0 +1,1351 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<STPostprocessor Version="6">
+    <CNCSystem>GRBL 4-Axis Post Processor</CNCSystem>
+    <MachineName>SourceRabbit 4-Axis Machine</MachineName>
+    <Date>28.03.2021</Date>
+    <Authors>Nikos Siatras</Authors>
+    <Comments>
+        <![CDATA[]]>
+    </Comments>
+    <NCFileExtension>tap</NCFileExtension>
+    <CommonDefinitions>
+        <LinearApproxPrecision IsSet="False">0.01</LinearApproxPrecision>
+        <Circles>
+            <Support>True</Support>
+            <HelixSupport>True</HelixSupport>
+            <Center>Absolute</Center>
+            <Division>DoNotBreak</Division>
+            <MaxRadius>3600</MaxRadius>
+        </Circles>
+        <XMax>0</XMax>
+        <YMax>0</YMax>
+        <ZMax>0</ZMax>
+        <UpperCaseComments>False</UpperCaseComments>
+        <Spaces>True</Spaces>
+        <DecimalSeparator>Point</DecimalSeparator>
+        <BlocksNumbering>
+            <Address>N</Address>
+            <StartValue>1</StartValue>
+            <StepValue>1</StepValue>
+            <Frequence>0</Frequence>
+        </BlocksNumbering>
+    </CommonDefinitions>
+    <InitialQuestions/>
+    <Registers>
+        <Register>
+            <Name>rGPlane</Name>
+            <Address>
+                <![CDATA[G]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>No</Sign>
+            <DecimalPoint>Present</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>2</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>0</Count>
+                <Zeros>False</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rGInterp</Name>
+            <Address>
+                <![CDATA[G]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>No</Sign>
+            <DecimalPoint>Present</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>2</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>0</Count>
+                <Zeros>False</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rX</Name>
+            <Address>
+                <![CDATA[X]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>Minus</Sign>
+            <DecimalPoint>Anyway</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>5</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>4</Count>
+                <Zeros>False</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rY</Name>
+            <Address>
+                <![CDATA[Y]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>Minus</Sign>
+            <DecimalPoint>Anyway</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>5</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>4</Count>
+                <Zeros>False</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rZ</Name>
+            <Address>
+                <![CDATA[Z]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>Minus</Sign>
+            <DecimalPoint>Anyway</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>5</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>3</Count>
+                <Zeros>False</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rI</Name>
+            <Address>
+                <![CDATA[I]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>Minus</Sign>
+            <DecimalPoint>Anyway</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>5</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>3</Count>
+                <Zeros>True</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rJ</Name>
+            <Address>
+                <![CDATA[J]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>Minus</Sign>
+            <DecimalPoint>Anyway</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>5</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>3</Count>
+                <Zeros>True</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rK</Name>
+            <Address>
+                <![CDATA[K]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>Minus</Sign>
+            <DecimalPoint>Anyway</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>5</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>3</Count>
+                <Zeros>True</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rA</Name>
+            <Address>
+                <![CDATA[A]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>Minus</Sign>
+            <DecimalPoint>Anyway</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>5</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>3</Count>
+                <Zeros>True</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rFeedrate</Name>
+            <Address>
+                <![CDATA[F]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>No</Sign>
+            <DecimalPoint>Absent</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>1</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>0</Count>
+                <Zeros>False</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rMSpindleCode</Name>
+            <Address>
+                <![CDATA[M]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>No</Sign>
+            <DecimalPoint>Absent</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>1</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>0</Count>
+                <Zeros>False</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rMCoolantCode</Name>
+            <Address>
+                <![CDATA[M]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>No</Sign>
+            <DecimalPoint>Absent</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>1</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>0</Count>
+                <Zeros>False</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rToolID</Name>
+            <Address>
+                <![CDATA[T]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>No</Sign>
+            <DecimalPoint>Absent</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>1</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>0</Count>
+                <Zeros>False</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+        <Register>
+            <Name>rSpindleRPM</Name>
+            <Address>
+                <![CDATA[S]]>
+            </Address>
+            <Comment>
+                <![CDATA[]]>
+            </Comment>
+            <Sign>No</Sign>
+            <DecimalPoint>Absent</DecimalPoint>
+            <NumeralsBeforePoint>
+                <Count>1</Count>
+                <Zeros>False</Zeros>
+            </NumeralsBeforePoint>
+            <NumeralsAfterPoint>
+                <Count>0</Count>
+                <Zeros>False</Zeros>
+            </NumeralsAfterPoint>
+            <Scale>1</Scale>
+        </Register>
+    </Registers>
+    <CLDCommandsHandlers>
+        <CLDCommand>
+            <CLDCommandID>AbsMov</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program AbsMov
+
+  ! To Change from G2 and G3 to G1
+  if f_COMMON_Interp > 1 then begin
+    f_COMMON_Interp = 1;  ! Change to G1
+  end
+
+  rGInterp = f_COMMON_Interp;
+
+  ! Set X,Y,Z absolute values
+  f_COMMON_X = cld[1];
+  f_COMMON_Y = cld[2];
+  f_COMMON_Z = cld[3];
+
+  rX = f_COMMON_X;
+  rY = f_COMMON_Y;
+  rZ = f_COMMON_Z;
+  
+ if (rX<>rX@) or (rY<>rY@) or (rZ<>rZ@) then begin
+      call CheckIfFeedrateNeedsReset;
+      call PrintRegisters;
+  end
+  
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>Circle</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program Circle
+
+  !--------------------------------------------------------------
+  ! Choose G2 or G3 Interpolation
+  !--------------------------------------------------------------
+  if cld[4] > 0 then
+    begin
+     f_COMMON_Interp = 3;
+    end
+  else
+    begin
+      f_COMMON_Interp = 2
+    end
+  !--------------------------------------------------------------
+
+  ! I,J,K in increments always
+  rI = (cld[1] - f_COMMON_X);
+  rJ = (cld[2] - f_COMMON_Y);
+  rK = (cld[3] - f_COMMON_Z);
+  
+
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ! If previous X and Y coordinates are equal to
+  ! current X and Y coordinates then set tmpIncrement
+  ! to 0.001 or 0.000
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  tmpIncrement:Real;
+  tmpIncrement = 0;
+  if rX = rX@ AND rY = rY AND rI = ri@ AND rJ = rJ@ then
+    begin
+      if f_COMMON_EVEN = 1 then
+        begin
+          tmpIncrement  = 0.0001;
+          f_COMMON_EVEN = 0;
+        end
+      else
+        begin
+           tmpIncrement  = -0.0001;
+           f_COMMON_EVEN = 1;
+        end
+    end
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   
+  ! Set rX,rY,rZ registers to absolute values
+  rX = cld[5] + tmpIncrement;
+  rY = cld[6] + tmpIncrement;
+  rZ = cld[7];
+  
+  ! To update all values
+  rI@ = MaxReal; rJ@ = MaxReal; rK@ = MaxReal;
+  rX@ = MaxReal; rY@ = MaxReal; rZ@ = MaxReal
+  
+  case rGPlane of
+    17: begin rK@ = rK; end
+    18: begin rJ@ = rJ; rY@=rY; end
+    19: begin rK@ = rK; rX@=rX; end
+  end
+  
+  ! Set feedrate to rFeedrate register
+  rFeedrate = f_COMMON_Feedrate;
+
+  ! Set Interpolation to rGInterp register
+  rGInterp = f_COMMON_Interp;
+
+
+  call CheckIfFeedrateNeedsReset;
+  call PrintRegisters;
+  
+  ! Set current coordinates to common variables
+  f_COMMON_X = cld[5];
+  f_COMMON_Y = cld[6];
+  f_COMMON_Z = cld[7];
+  
+  ! To not "disturb" SprutCAM's precision
+  ! remove the tmpIncrement if we added it before
+  ! to rX and rY registers
+  if tmpIncrement<>0 then
+    begin
+     rX = cld[5] - tmpIncrement;
+     rY = cld[6] - tmpIncrement;
+    end
+  
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>Comment</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program Comment
+
+  ! Get the comment text
+  commentText$ = CLDATA$
+  
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ! TOOL CHANGE COMMENT
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ! If   fToolChangeCommand is not "" then the Loadtl has been called
+  ! and we have a tool change.
+  ! Output the tool change command with the tool name next to it
+  if f_COMMON_ToolChangeCommand <> "" then begin
+    Output  f_COMMON_ToolChangeCommand  + " (" + Copy(commentText$, 2, 1000) + ")";
+    f_COMMON_ToolChangeCommand = "";
+  end
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+  Call PrintRegisters
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>Common</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program Common
+
+
+  f_COMMON_EVEN:Integer
+  f_COMMON_RESET_FEEDRATE:Integer;
+
+  MAXREAL:Real
+  XT_:Real
+  YT_:Real
+  ZT_:Real
+  
+  FROMX_:Real
+  FROMY_:Real
+  FROMZ_:Real
+  
+  f_COMMON_Interp:Integer
+  f_COMMON_Plane:Integer
+  f_COMMON_Feedrate:Integer
+
+  f_COMMON_X:Real
+  f_COMMON_Y:Real
+  f_COMMON_Z:Real
+  f_COMMON_A:Real
+  
+
+  f_COMMON_ToolChangeCommand: String
+
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>Coolnt</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program CoolNt
+
+
+  if cld[1] = 71 then  !Coolant is On
+    begin
+      if cld[2] = 1 then
+        rMCoolantCode = 7       ! Flood (M7)
+      else if cld[2] = 2 then
+        rMCoolantCode = 8       ! Mist (M8)
+      else if cld[2] = 3 then
+    end
+  
+  if cld[1] = 72 then ! Coolant Off  (M9)
+    begin
+       rMCoolantCode = 9
+    end
+
+  Call PrintRegisters;
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>Fedrat</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program Fedrat
+
+  f_Common_Feedrate = CLD.NM;
+  f_COMMON_Interp = 1
+
+  rFeedrate = CLD.NM;
+  
+  rX = f_COMMON_X;
+  rY = f_COMMON_Y;
+  rZ = f_COMMON_Z;
+
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>Fini</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program Fini
+
+  rMSpindleCode = 5; ! Spindle Off
+  rMCoolantCode = 9; ! Coolant Off
+  
+  
+  Call PrintRegisters;
+
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>Loadtl</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program Loadtl
+
+
+  ! The fToolChangeCommand variable is declared in the Commons
+  f_COMMON_ToolChangeCommand = "M6 T" + Cmd.Int["ToolID"]
+  
+
+
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>MultiGOTO</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program MultiGOTO
+
+  rGInterp = f_COMMON_INTERP;
+
+  if Cmd.Ptr["Axes(AxisXPos)"] <> 0 then begin
+    rX = Cmd.Flt["Axes(AxisXPos).Value"]
+    f_COMMONX_X = rX
+  end
+  
+  if Cmd.Ptr["Axes(AxisYPos)"] <> 0 then begin
+    rY = Cmd.Flt["Axes(AxisYPos).Value"]
+    f_COMMONX_Y = rY
+  end
+  
+  if Cmd.Ptr["Axes(AxisZPos)"] <> 0 then begin
+    rZ = Cmd.Flt["Axes(AxisZPos).Value"]
+    f_COMMONX_Z = rZ
+  end
+  
+  if Cmd.Ptr["Axes(AxisAPos)"] <> 0 then begin
+    rA = Cmd.Flt["Axes(AxisAPos).Value"]
+  end
+
+
+  Call PrintRegisters
+
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>PartNo</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program PartNo
+
+  MaxReal = 99999.999;
+
+  rGInterp@ = -1;
+  rGInterp = rGInterp@;
+  
+  rX@ = MaxReal;
+  rX = rX@;
+  rY@ = MaxReal;
+  rY = rY@;
+  rZ@ = MaxReal;
+  rZ = rZ@;
+  rA@ = MaxReal;
+  rA = rA@;
+  
+
+  Output "; Post Processor: " + SPPName$ + " Version 1.4";
+  Output "; DATE TIME: " + CurDate + " " + CurTime;
+  OutPut ";  ____                           ____       _     _     _ _";
+  OutPut "; / ___|  ___  _   _ _ __ ___ ___|  _ \ __ _| |__ | |__ (_) |_";
+  OutPut "; \___ \ / _ \| | | | '__/ __/ _ \ |_) / _` | '_ \| '_ \| | __|";
+  OutPut ";  ___) | (_) | |_| | | | (_|  __/  _ < (_| | |_) | |_) | | |_ ";
+  OutPut "; |____/ \___/ \__,_|_|  \___\___|_| \_\__,_|_.__/|_.__/|_|\__|";
+  Output ";                                         Generated by SprutCAM";
+
+  OutPut "";
+
+  OutPut "G21 (Metric)"
+  OutPut "G90 (Absolute)"
+  OutPut "G94 (Feedrate set to Units per Minute)"
+  OutPut ""
+  
+  Call WriteStockProperties;
+  OutPut ""
+  Call WriteToolsList;
+  
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>Plane</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program Plane
+
+  case cld[1] of
+    33, 133: f_COMMON_Plane = 17 ! XY
+    37, 137: f_COMMON_Plane = 19 ! YZ
+    41, 141: f_COMMON_Plane = 18 ! XZ
+  end
+
+  ! Update plane if the value stored in
+  ! common variable is different from the given one (cld[1])
+  if f_COMMON_Plane <> rGPlane then
+    begin
+      rGPlane = f_COMMON_Plane
+      Call PrintRegisters;
+    end
+
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>PPFun</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program PPFun
+
+
+  case CLD.SubCode of
+
+    58:
+    begin  ! CLD Subcode=58 is PPFUN Start
+      Output "(OPERATION:" + Cmd.Str["PPFun(TechInfo).Operation(1).Comment"]+")";
+    end
+
+    59:
+    begin  ! CLD Subcode=59 is PPFUN End
+      Output "(OPERATION END)";
+      Output "";
+    end
+
+  end
+
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>Rapid</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program Rapid
+
+   f_COMMON_Interp = 0
+   f_COMMON_Feedrate = 50000
+
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+        <CLDCommand>
+            <CLDCommandID>Spindl</CLDCommandID>
+            <Handlers>
+                <Program>
+                    <Enabled>True</Enabled>
+                    <ProgramCode>
+                        <![CDATA[program Spindl
+
+  rSpindleRPM = abs(cld[2])
+  
+  case cld[1] of
+
+    71:
+      begin   ! Spindle ON
+        !M3 for Clockwise and M4 for Counter Clock Wise
+        if cld[2] > 0 then rMSpindleCode = 3 else rMSpindleCode = 4
+
+      end
+
+    72:
+      begin   ! Spindle Off
+        rMSpindleCode = 5     !M5 Stops the spindle
+        rSpindleRPM = 0;
+
+        ! Reset the rGInterp register every time the
+        ! spindle turns off
+        rGInterp@ = MaxReal;
+        rGInterp = rGInterp@;
+      end
+    
+  end
+  
+  Call PrintRegisters;
+
+end
+]]>
+                    </ProgramCode>
+                </Program>
+            </Handlers>
+        </CLDCommand>
+    </CLDCommandsHandlers>
+    <SubroutineList>
+        <Subroutine>
+            <Name>CheckIfFeedrateNeedsReset</Name>
+            <ProgramCode>
+                <![CDATA[sub CheckIfFeedrateNeedsReset
+
+    ! Check if Feedrate needs reset
+     if f_COMMON_RESET_FEEDRATE = 1 AND rGInterp <>0   then
+      begin
+        rFeedrate@ = MaxReal;
+        f_COMMON_RESET_FEEDRATE = 0;
+      end
+subend
+]]>
+            </ProgramCode>
+        </Subroutine>
+        <Subroutine>
+            <Name>PrintRegisters</Name>
+            <ProgramCode>
+                <![CDATA[sub PrintRegisters
+
+    OutBlock
+subend
+]]>
+            </ProgramCode>
+        </Subroutine>
+        <Subroutine>
+            <Name>WriteStockProperties</Name>
+            <ProgramCode>
+                <![CDATA[sub WriteStockProperties
+
+  stockType:Integer;
+  stockX:Real;
+  stockY:Real;
+  stockZ:Real;
+  stockDiameter:Real;
+
+  ! Calculate Stock Dimentions
+  stockType = Project.Int["Parts(1).Workpiece(1).PrimitiveType"];
+
+  if stockType = 4 OR stockType = 6 then
+    begin
+      OutPut ""
+      OutPut ";------------------------------- Stock --------------------------------------";
+
+      if stockType = 4 then
+        begin
+          ! Box
+          showStock = 1;
+          stockX = Project.Flt["Parts(1).Workpiece(1).Max.X"] - Project.Flt["Parts(1).Workpiece(1).Min.X"];
+          stockY = Project.Flt["Parts(1).Workpiece(1).Max.Y"] - Project.Flt["Parts(1).Workpiece(1).Min.Y"];
+          stockZ = Project.Flt["Parts(1).Workpiece(1).Max.Z"] - Project.Flt["Parts(1).Workpiece(1).Min.Z"];
+          OutPut ";Dimentions(X x Y x Z): " + str(stockX) + "x" + str(stockY) + "x" + str(stockZ);
+        end
+      else if stockType = 6 then
+        begin
+          ! Cylinder
+         stockX = Project.Flt["Parts(1).Workpiece(1).HMax"] - Project.Flt["Parts(1).Workpiece(1).HMin"] ;
+         stockDiameter = Project.Flt["Parts(1).Workpiece(1).ROut"]*2;
+         OutPut ";Dimentions(Diameter x Length): " + str(stockDiameter) + " x " + str(stockX);
+        end
+      else
+        begin
+          OutPut ";Unknown Stock";
+        end
+
+
+      OutPut ";----------------------------------------------------------------------------";
+    end
+
+
+subend
+]]>
+            </ProgramCode>
+        </Subroutine>
+        <Subroutine>
+            <Name>WriteToolsList</Name>
+            <ProgramCode>
+                <![CDATA[sub WriteToolsList
+  i: Integer
+  j: Integer
+  k: Integer;
+  ToolNumber : Integer;
+  ToolNumberStr : String;
+  ToolComment : String;
+  ToolDiam : Real;
+  ToolDiamStr : String;
+  OperationName : String;
+  ss, ss2, outputStr, previousOutputStr: String;
+  previousOutputStr = ""
+  
+  OutPut ";-------------------------- Tools List --------------------------------------"
+  
+  for i = 0 to CldFile.FileCount-1 do begin
+    if (CldFile[i].Enabled > 0) and (CldFile[i].IsNCSub = 0) then begin
+      k = 0;
+      j = 1
+      while j < CldFile[i].CmdCount do begin
+
+        ! If the command is Loadtl get the tool number and tool Diameter
+        if CLDFile[i].Cmd[j].Code = CodeOfCmd("Loadtl") then begin
+          ToolNumber = CLDFile[i].Cmd[j].data[1];
+          ToolDiam = CLDFile[i].Cmd[j].data[5];
+        end
+        
+        ! If the command is Comment get the tool name
+        if CLDFile[i].Cmd[j].Code = CodeOfCmd("Comment") then begin
+          ss = CLDFile[i].Cmd[j].Data
+          if k = 0 then
+            OperationName = Translit(ss)
+          else
+            ToolComment = Copy(ss, 2, 1000);
+          k = k+1;
+
+          if k=2 then begin
+            previousOutputStr = outputStr
+
+            ! Fix tool numberStr to 4 Characters
+            ToolNumberStr = str(ToolNumber)
+            while len(ToolNumberStr)< 3 do begin
+               ToolNumberStr = ToolNumberStr +" "
+            end
+            
+            ToolDiamStr = str( ToolDiam)
+            while len(ToolDiamStr)< 3 do begin
+               ToolDiamStr = ToolDiamStr +" "
+            end
+            
+
+            outputStr =  "; #"+ToolNumberStr +" D"+ ToolDiamStr+ " ("+ ToolComment +")--> OPERATION:" +OperationName
+            if previousOutputStr<>outputStr then begin
+              output outputStr
+            end
+            j = CldFile[i].CmdCount;
+          end;
+          
+        end
+        j = j+1;
+      end
+    end
+  end
+  
+  Output ";----------------------------------------------------------------------------"
+  OutPut ""
+  
+  
+
+subend
+]]>
+            </ProgramCode>
+        </Subroutine>
+    </SubroutineList>
+    <Machine>
+        <MachineAxes/>
+    </Machine>
+    <TransliterationTable>
+        <ActiveLanguage/>
+        <Languages>
+            <Language>
+                <Name>Russian</Name>
+                <Chars>
+                    <Char>
+                        <ID>1</ID>
+                        <Latin>a</Latin>
+                        <Local>а</Local>
+                    </Char>
+                    <Char>
+                        <ID>2</ID>
+                        <Latin>b</Latin>
+                        <Local>б</Local>
+                    </Char>
+                    <Char>
+                        <ID>3</ID>
+                        <Latin>v</Latin>
+                        <Local>в</Local>
+                    </Char>
+                    <Char>
+                        <ID>4</ID>
+                        <Latin>g</Latin>
+                        <Local>г</Local>
+                    </Char>
+                    <Char>
+                        <ID>5</ID>
+                        <Latin>d</Latin>
+                        <Local>д</Local>
+                    </Char>
+                    <Char>
+                        <ID>6</ID>
+                        <Latin>e</Latin>
+                        <Local>е</Local>
+                    </Char>
+                    <Char>
+                        <ID>7</ID>
+                        <Latin>yo</Latin>
+                        <Local>ё</Local>
+                    </Char>
+                    <Char>
+                        <ID>8</ID>
+                        <Latin>zh</Latin>
+                        <Local>ж</Local>
+                    </Char>
+                    <Char>
+                        <ID>9</ID>
+                        <Latin>z</Latin>
+                        <Local>з</Local>
+                    </Char>
+                    <Char>
+                        <ID>10</ID>
+                        <Latin>i</Latin>
+                        <Local>и</Local>
+                    </Char>
+                    <Char>
+                        <ID>11</ID>
+                        <Latin>j</Latin>
+                        <Local>й</Local>
+                    </Char>
+                    <Char>
+                        <ID>12</ID>
+                        <Latin>k</Latin>
+                        <Local>к</Local>
+                    </Char>
+                    <Char>
+                        <ID>13</ID>
+                        <Latin>l</Latin>
+                        <Local>л</Local>
+                    </Char>
+                    <Char>
+                        <ID>14</ID>
+                        <Latin>m</Latin>
+                        <Local>м</Local>
+                    </Char>
+                    <Char>
+                        <ID>15</ID>
+                        <Latin>n</Latin>
+                        <Local>н</Local>
+                    </Char>
+                    <Char>
+                        <ID>16</ID>
+                        <Latin>o</Latin>
+                        <Local>о</Local>
+                    </Char>
+                    <Char>
+                        <ID>17</ID>
+                        <Latin>p</Latin>
+                        <Local>п</Local>
+                    </Char>
+                    <Char>
+                        <ID>18</ID>
+                        <Latin>r</Latin>
+                        <Local>р</Local>
+                    </Char>
+                    <Char>
+                        <ID>19</ID>
+                        <Latin>s</Latin>
+                        <Local>с</Local>
+                    </Char>
+                    <Char>
+                        <ID>20</ID>
+                        <Latin>t</Latin>
+                        <Local>т</Local>
+                    </Char>
+                    <Char>
+                        <ID>21</ID>
+                        <Latin>u</Latin>
+                        <Local>у</Local>
+                    </Char>
+                    <Char>
+                        <ID>22</ID>
+                        <Latin>f</Latin>
+                        <Local>ф</Local>
+                    </Char>
+                    <Char>
+                        <ID>23</ID>
+                        <Latin>x</Latin>
+                        <Local>х</Local>
+                    </Char>
+                    <Char>
+                        <ID>24</ID>
+                        <Latin>cz</Latin>
+                        <Local>ц</Local>
+                    </Char>
+                    <Char>
+                        <ID>25</ID>
+                        <Latin>ch</Latin>
+                        <Local>ч</Local>
+                    </Char>
+                    <Char>
+                        <ID>26</ID>
+                        <Latin>sh</Latin>
+                        <Local>ш</Local>
+                    </Char>
+                    <Char>
+                        <ID>27</ID>
+                        <Latin>shh</Latin>
+                        <Local>щ</Local>
+                    </Char>
+                    <Char>
+                        <ID>28</ID>
+                        <Latin/>
+                        <Local>ъ</Local>
+                    </Char>
+                    <Char>
+                        <ID>29</ID>
+                        <Latin>y</Latin>
+                        <Local>ы</Local>
+                    </Char>
+                    <Char>
+                        <ID>30</ID>
+                        <Latin/>
+                        <Local>ь</Local>
+                    </Char>
+                    <Char>
+                        <ID>31</ID>
+                        <Latin>e</Latin>
+                        <Local>э</Local>
+                    </Char>
+                    <Char>
+                        <ID>32</ID>
+                        <Latin>yu</Latin>
+                        <Local>ю</Local>
+                    </Char>
+                    <Char>
+                        <ID>33</ID>
+                        <Latin>ya</Latin>
+                        <Local>я</Local>
+                    </Char>
+                    <Char>
+                        <ID>34</ID>
+                        <Latin/>
+                        <Local>@</Local>
+                    </Char>
+                </Chars>
+            </Language>
+        </Languages>
+    </TransliterationTable>
+    <ReinterpNCData>
+        <GFuncs>
+            <Interpolation>
+                <Positioning/>
+                <LinearInterp/>
+                <CircularInterpCW/>
+                <CircularInterpCCW/>
+                <Thread/>
+                <SingleDirectionPositioning/>
+            </Interpolation>
+            <Plane>
+                <XYPlane/>
+                <ZXPlane/>
+                <YZPlane/>
+                <YXPlane/>
+                <XZPlane/>
+                <ZYPlane/>
+            </Plane>
+            <Conversion>
+                <Inch/>
+                <Metric/>
+            </Conversion>
+            <StoredStrokeCheck>
+                <On/>
+                <Off/>
+            </StoredStrokeCheck>
+            <RefPos>
+                <ReturnCheck/>
+                <ReturnTo/>
+                <ReturnFrom/>
+                <OtherRefPosReturn/>
+                <Skip/>
+            </RefPos>
+            <CutterCompens>
+                <Cancel/>
+                <Left/>
+                <Right/>
+            </CutterCompens>
+            <ToolLenCompens>
+                <Plus/>
+                <Minus/>
+                <Cancel/>
+            </ToolLenCompens>
+            <ToolOffset>
+                <Increase/>
+                <Decrease/>
+                <DoubleIncrease/>
+                <DoubleDecrease/>
+            </ToolOffset>
+            <Scaling>
+                <Off/>
+                <On/>
+            </Scaling>
+            <CSSelection>
+                <Workpiece1/>
+                <Workpiece2/>
+                <Workpiece3/>
+                <Workpiece4/>
+                <Workpiece5/>
+                <Workpiece6/>
+            </CSSelection>
+            <Modes>
+                <ExactStop/>
+                <AutoCornerOverride/>
+                <Tapping/>
+                <Cutting/>
+            </Modes>
+            <Macro>
+                <Call/>
+                <ModalCall/>
+                <ModalCallCancel/>
+            </Macro>
+            <Cycles>
+                <CycleParams>
+                    <ReturnPoint/>
+                    <HoleLevel/>
+                    <Feedrate/>
+                    <CutInStep/>
+                    <PauseAtTop/>
+                    <WorkpieceLevel/>
+                    <SafePlaneLevel/>
+                    <PauseAtBottom/>
+                    <SafePlaneReturnFeed/>
+                    <Degression/>
+                    <ChipRemoveRate/>
+                    <MinCutInStep/>
+                    <ToolWithdrawal/>
+                    <SpindleShift/>
+                    <SpindleAngle/>
+                    <LeadIn/>
+                    <LastLeadIn/>
+                    <ChipBreakingStep/>
+                    <NumberOfRepeats/>
+                </CycleParams>
+                <PeckDrilling/>
+                <CounterTapping/>
+                <FineBoring/>
+                <CycleCancel/>
+                <DrillingSpotBoring/>
+                <DrillingCounterBoring/>
+                <PeckDrilling2/>
+                <Tapping/>
+                <Boring1/>
+                <Boring2/>
+                <Boring3/>
+                <Boring4/>
+                <Boring5/>
+                <CycleDefinition/>
+                <CycleCall/>
+            </Cycles>
+            <FrameOfReference>
+                <Absolute/>
+                <Incremental/>
+            </FrameOfReference>
+            <Feed>
+                <PerMinute/>
+                <PerRevolution/>
+            </Feed>
+            <Speed>
+                <CSS/>
+                <CSSCancel/>
+            </Speed>
+            <CannedCycle>
+                <ReturnToInitialPoint/>
+                <ReturnToRPoint/>
+            </CannedCycle>
+            <Other>
+                <Dwell/>
+                <HighSpeed/>
+                <CylInterp/>
+                <ExactStop/>
+                <DataSetting/>
+                <ProgrammingOfAbsZero/>
+            </Other>
+        </GFuncs>
+        <MFuncs>
+            <Spindle>
+                <CW/>
+                <CCW/>
+                <Stop/>
+            </Spindle>
+            <Coolant>
+                <On/>
+                <Off/>
+            </Coolant>
+            <Other>
+                <ProgramStop/>
+                <OptionalStop/>
+                <EndOfProgram/>
+                <ToolChange/>
+                <EndWithReturn/>
+                <SubCall/>
+                <EndSub/>
+            </Other>
+        </MFuncs>
+        <Identifiers>
+            <Coordinates>
+                <AbsoluteX/>
+                <AbsoluteY/>
+                <AbsoluteZ/>
+                <IncrementalX/>
+                <IncrementalY/>
+                <IncrementalZ/>
+            </Coordinates>
+            <Circle>
+                <CenterCoordinates>
+                    <AbsoluteX/>
+                    <AbsoluteY/>
+                    <AbsoluteZ/>
+                    <IncrementalX/>
+                    <IncrementalY/>
+                    <IncrementalZ/>
+                </CenterCoordinates>
+                <Radius/>
+                <ArcAngle/>
+                <Center/>
+                <EndPoint/>
+                <ToolMotionByRadius/>
+                <ChamferOfCorner/>
+                <RoundingOfCorner/>
+            </Circle>
+            <Correctors>
+                <LengthNumber/>
+                <RadiusNumber/>
+            </Correctors>
+            <Other>
+                <BlockNumeration/>
+                <Dwell/>
+                <FeedAssignment/>
+                <SpindleRotations/>
+                <ToolNumber/>
+                <RepeatNumber/>
+                <SubID/>
+                <SafeZLevel/>
+            </Other>
+        </Identifiers>
+        <Additional>
+            <OpenComment/>
+            <CloseComment/>
+            <Delimiters/>
+        </Additional>
+    </ReinterpNCData>
+</STPostprocessor>
