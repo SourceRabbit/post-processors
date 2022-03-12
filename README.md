@@ -4,7 +4,7 @@ SourceRabbit's Post Processors Library
 <a href="https://www.sourcerabbit.com"><img src="https://github.com/SourceRabbit/post-processors/blob/main/_images/header2.png" alt="SourceRabbit Post Processors"></a>
 </p>
 
-Join our Discord Server: https://discord.gg/Qxdm5ZBa
+Join our Discord Server: https://discord.gg/nRKETyjJ7E
 
 Introduction
 ------
