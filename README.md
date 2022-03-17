@@ -4,8 +4,10 @@ SourceRabbit's Post Processors Library
 <a href="https://www.sourcerabbit.com"><img src="https://github.com/SourceRabbit/post-processors/blob/main/_images/header2.png" alt="SourceRabbit Post Processors"></a>
 </p>
 
+Join our Discord Server: https://discord.gg/nRKETyjJ7E
+
 Introduction
 ------
-This GitHub repository holds the SourceRabbit's official post processors for the <b>SourceRabbit GCode Sender</b> and the <b>SourceRabbit GCode Sender 4-Axis.</b>
+The post processors contained on this GitHub repository are compatible with <a href="https://www.sourcerabbit.com/Shop/pr-i-91-t-focus-cnc-control-software.htm"><b>Focus - PC Based CNC Control Software</b></a> developed by SourceRabbit. They might be compatible with other GRBL gcode senders but they are not tested.
 
 More information and how-to-install guides for our post processors can be found on our website: https://www.sourcerabbit.com/Help/#PostProcessors
