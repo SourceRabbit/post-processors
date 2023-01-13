@@ -629,7 +629,7 @@ end
   if cld[1] = 52 then begin     ! do cycle
   
       case CLD.SubType of
-      
+
         ! G81 Simple Drilling
         481: begin
           rGInterp@ = MaxReal
