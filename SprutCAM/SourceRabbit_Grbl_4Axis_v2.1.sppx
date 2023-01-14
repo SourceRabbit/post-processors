@@ -2,7 +2,7 @@
 <STPostprocessor Version="6">
     <CNCSystem>GRBL 4-Axis Post Processor</CNCSystem>
     <MachineName>SourceRabbit 4-Axis Machine</MachineName>
-    <Date>12.01.2023</Date>
+    <Date>14.01.2023</Date>
     <Authors>Nikos Siatras , SourceRabbit</Authors>
     <Comments>
         <![CDATA[Designed to be used with Focus - PC Based CNC Control System]]>
