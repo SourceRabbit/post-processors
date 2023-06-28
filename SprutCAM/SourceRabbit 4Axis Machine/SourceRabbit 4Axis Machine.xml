@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<SCCollection>
+	<SCType ID="MillMachine3d" Caption="MillMachine3d" type="AbstractMillMachine" Enabled="true">
+		<GUID DefaultValue="{E756E2C3-7665-4F9F-91A5-8727201F13BC}"/>
+		<Priority DefaultValue="3"/>
+
+		<Name DefaultValue="SourceRabbit 4-Axis Mill"/>
+		<Comment DefaultValue="4-Axis milling machine"/>
+		<Image DefaultValue="Images\Mill_3Axis.bmp"/>
+		<Icon DefaultValue="Images\Mill_3Axis_ico.bmp"/>
+		<ControlData>
+		  <UseArc DefaultValue="True" />
+		  <UseArcInXY DefaultValue="True" />
+		  <UseArcInYZ DefaultValue="False" />
+		  <UseArcInZX DefaultValue="False" />
+		  <CirclesDivision DefaultValue="Quadrants" />
+		  <MinArcLength DefaultValue="0.05" />
+		  <MaxArcRadius DefaultValue="10000" />
+		  <SpatialArcs>
+			<Supported DefaultValue="False" />
+			<MinDistance DefaultValue="0.2" />
+			<ReorientationMode DefaultValue="rmBaseCS" />
+		  </SpatialArcs>
+		  <OriginParams>
+			<Prefix DefaultValue="G" />
+			<InitialNum DefaultValue="54" />
+			<IncStep DefaultValue="1" />
+			<CreateNewOriginForPart DefaultValue="True" />
+		  </OriginParams>
+		  <Indexed5AxisCompensationMode>
+			<IsToolTipCompensated DefaultValue="True" />
+			<IsWorkpieceZeroCompensated DefaultValue="False" />
+			<IsCoordinateAxesCompensated DefaultValue="False" />
+		  </Indexed5AxisCompensationMode>
+		  <RotaryTrans>
+			<PolarAvailable DefaultValue="True" />
+			<CNCSupPolar DefaultValue="True" />
+			<CylindAvailable DefaultValue="True" />
+			<CNCSupCylind DefaultValue="True" />
+			<AllowRapidInsideCNCInterpolation DefaultValue="True" />
+			<TCPMAvailable DefaultValue="False" />
+		  </RotaryTrans>
+		</ControlData>
+		<Schema>
+			<SCType ID="Table" Caption="Table" type="TWorkpieceHolderNode"/>
+		</Schema>
+	</SCType>
+
+</SCCollection>
