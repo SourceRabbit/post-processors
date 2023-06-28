@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <SCCollection>
-	<SCType ID="SourceRabbit4AxisMill" Caption="SourceRabbit4AxisMill" type="AbstractMillMachine" Enabled="true">
+	<SCType ID="SourceRabbit3AxisMill" Caption="SourceRabbit3AxisMill" type="AbstractMillMachine" Enabled="true">
 		<GUID DefaultValue="{7C446371-09E5-47F4-BE15-E2E5B32BAB52}"/>
 		<Priority DefaultValue="3"/>
 
-		<Name DefaultValue="SourceRabbit 4-Axis Mill"/>
-		<Comment DefaultValue="4-Axis Milling Machine"/>
-		<Image DefaultValue="Images\Mill_3Axis.bmp"/>
-		<Icon DefaultValue="Images\Mill_3Axis_ico.bmp"/>
+		<Name DefaultValue="SourceRabbit 3-Axis Mill"/>
+		<Comment DefaultValue="3-Axis Milling Machine"/>
+		<Image DefaultValue="Images\3_Axis_Mill_20x20.bmp"/>
+		<Icon DefaultValue="Images\3_Axis_Mill_20x20.bmp"/>
 		<ControlData>
 		  <UseArc DefaultValue="True" />
 		  <UseArcInXY DefaultValue="True" />
