@@ -500,13 +500,17 @@ function onCommand(command) {
 
 function onSectionEnd() {
   if (currentSection.isMultiAxis()) {
-    writeBlock(gFeedModeModal.format(94)); // inverse time feed off
+    writeBlock(gFeedModeModal.format(94)); // Inverse time feed off
   }
-  writeBlock(gPlaneModal.format(17));
+  writeBlock(gPlaneModal.format(17)); // Reset plane to G17
+
+  // Inserting new commands here
+  writeBlock("G0 Z5.000"); // Move Z to safe position
+
   if (!isLastSection() && (getNextSection().getTool().coolant != tool.coolant)) {
-    setCoolant(COOLANT_OFF);
+    setCoolant(COOLANT_OFF); // Turn off coolant if the next tool uses a different coolant setting
   }
-  forceAny();
+  forceAny(); // Force state reset if necessary
 }
 
 // Start of onRewindMachine logic
