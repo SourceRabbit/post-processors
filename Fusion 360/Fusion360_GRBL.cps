@@ -2,12 +2,9 @@
   Copyright (C) 2012-2023 by Autodesk, Inc.
   All rights reserved.
 
-  Grbl post processor configuration.
+  Grbl post processor configuration. Altered by NEWTechCreative for SourceRabbit focus software
 
-  $Revision: 44083 865c6f1c385b9194ab63e73899f0a4787fce12a6 $
-  $Date: 2023-08-14 12:16:17 $
-
-  FORKID {154F7C00-6549-4c77-ADE0-79375FE5F2AA}
+  $Date: 2024-04-11 22:35:17 $
 */
 
 description = "Grbl";
@@ -503,13 +500,16 @@ function onSectionEnd() {
     writeBlock(gFeedModeModal.format(94)); // Inverse time feed off
   }
   writeBlock(gPlaneModal.format(17)); // Reset plane to G17
-
-  // Inserting new commands here
   writeBlock("G0 Z5.000"); // Move Z to safe position
 
   if (!isLastSection() && (getNextSection().getTool().coolant != tool.coolant)) {
     setCoolant(COOLANT_OFF); // Turn off coolant if the next tool uses a different coolant setting
   }
+
+  // Optionally remove or adjust the homing command if not needed:
+  // writeBlock("G28 G91 Z0"); // Uncomment this line if you wish to home the Z-axis after operations
+  // writeBlock("G90"); // Uncomment to reset to absolute positioning if G28 is used
+
   forceAny(); // Force state reset if necessary
 }
 
@@ -560,12 +560,11 @@ function onClose() {
   forceWorkPlane();
   setWorkPlane(new Vector(0, 0, 0)); // reset working plane
   onCommand(COMMAND_STOP_SPINDLE);
-  writeBlock(mFormat.format(30)); // stop program, spindle stop, coolant off
+  // writeBlock(mFormat.format(30)); // Commented out to remove "M30" end program command
   if (isRedirecting()) {
-    closeRedirection();
+      closeRedirection();
   }
 }
-
 // >>>>> INCLUDED FROM include_files/commonFunctions.cpi
 // internal variables, do not change
 var receivedMachineConfiguration;
