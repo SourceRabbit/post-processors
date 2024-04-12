@@ -471,20 +471,21 @@ function onCommand(command) {
     return;
   case COMMAND_LOAD_TOOL:
     if (getProperty("useToolCall")) {
+        var toolType = tool.description || "flat end mill";  // Use actual tool description
+        var toolLabel = toolType;  // Prepare the label to display
+
         if (getProperty("useM06")) {
-            // This will output "M6 T1" where "1" is an example tool number
-            writeToolBlock("M6 T" + toolFormat.format(tool.number));
+            writeToolBlock("M6 T" + toolFormat.format(tool.number) + " (" + toolLabel + ")");
         } else {
-            // Outputs just the tool number without M6 if useM06 is false
-            writeToolBlock("T" + toolFormat.format(tool.number));
-            writeComment(localize("CHANGE TO T") + tool.number);
+            writeToolBlock("T" + toolFormat.format(tool.number) + " (" + toolLabel + ")");
         }
     } else if (getProperty("useM06")) {
-        writeToolBlock("M6"); // Just M6 if no tool call is used
+        writeToolBlock("M6"); // Issue M6 without additional tool call
     }
-    writeComment(tool.comment);
+    // writeComment("Tool Change: " + toolLabel); // Commented out to remove redundant line
     return;
-  }
+}
+
 
   var stringId = getCommandStringId(command);
   var mcode = mapCommand[stringId];
